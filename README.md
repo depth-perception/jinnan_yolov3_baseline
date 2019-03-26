@@ -26,7 +26,7 @@ git clone https://github.com/depth-perception/jinnan_yolov3_baseline.git
 
 ##### 4.参考 [darknet实现](https://blog.csdn.net/lilai619/article/details/79695109)，完成数据的准备和环境的编译。
 
-##### 5.计算anchors，并在yolov3_5l.cfg对应修改(已经修改)
+##### 5.计算anchors
 
 ```
 ./darknet detector calc_anchors cfg/jinnan.data -num_of_clusters 15 -width 416 -height 416
@@ -38,13 +38,7 @@ git clone https://github.com/depth-perception/jinnan_yolov3_baseline.git
 ./darknet detector train cfg/yolov3_5l.cfg cfg/jinnan.data darknet53.conv.74 -map
 ```
 
-注：-map表示训练过程中，每隔一定代数计算map，但这一定程度上会加长训练时间。
-
-##### 断点训练：
-
-```
-./darknet detector train cfg/yolov3_5l.cfg cfg/jinnan.data backup/yolov3_last.weights -map
-```
+注：-map表示训练过程中，每隔一定代数计算map，但这一定程度上会加长训练时间，支持断点训练。
 
 ##### 7.验证
 
@@ -52,7 +46,7 @@ git clone https://github.com/depth-perception/jinnan_yolov3_baseline.git
 ./darknet detector train cfg/yolov3_5l.cfg cfg/jinnan.data backup/yolov3_last.weights -map
 ```
 
-##### 8.测试图片：
+##### 8.测试图片
 
 ```
 ./darknet detector test cfg/jinnan.data cfg/yolov3.cfg yolov3.weights -ext_output dog.jpg
@@ -63,8 +57,6 @@ git clone https://github.com/depth-perception/jinnan_yolov3_baseline.git
 ```
 ./darknet detector test cfg/jinnan.data cfg/yolov3.cfg yolov3.weights -dont_show -ext_output < data/val.txt > result.txt
 ```
-
-
 
 ## 参考：
 
