@@ -1,0 +1,2 @@
+# jinnan_yolov3_baseline
+津南算法大赛，基于改进yolov3的x光违禁物品检测
